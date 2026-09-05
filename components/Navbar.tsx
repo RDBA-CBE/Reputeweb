@@ -20,7 +20,9 @@ export const navItems = [
 const navVariants = {
   hidden: { y: -80, opacity: 0, scale: 0.97 },
   visible: {
-    y: 0, opacity: 1, scale: 1,
+    y: 0,
+    opacity: 1,
+    scale: 1,
     transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
   },
 };
@@ -28,14 +30,19 @@ const navVariants = {
 const itemVariants = {
   hidden: { opacity: 0, y: -8 },
   visible: (i: number) => ({
-    opacity: 1, y: 0,
+    opacity: 1,
+    y: 0,
     transition: { duration: 0.4, delay: 0.35 + i * 0.07, ease: "easeOut" },
   }),
 };
 
 const sideVariants = (dir: number) => ({
   hidden: { opacity: 0, x: dir * 24 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.25, ease: [0.22, 1, 0.36, 1] } },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.5, delay: 0.25, ease: [0.22, 1, 0.36, 1] },
+  },
 });
 
 export default function Navbar() {
@@ -53,34 +60,59 @@ export default function Navbar() {
       variants={navVariants}
       initial="hidden"
       animate="visible"
-      className={`w-full px-4 sm:px-6 lg:px-8 mx-auto z-50 fixed top-0 transition-all duration-500 ${scrolled ? "pt-2 md:pt-3" : "pt-4 md:pt-6"}`}
+      className={`fixed top-0 left-0 right-0 z-50 section-wid transition-all duration-500 ${scrolled ? "pt-2 md:pt-3" : "pt-4 md:pt-6"}`}
     >
       <motion.nav
         animate={{
           boxShadow: scrolled
-            ? "0 8px 32px rgba(0,0,0,0.12)"
+            ? "0 8px 32px rgba(0,0,0,0.18)"
             : "0 2px 8px rgba(0,0,0,0.06)",
         }}
         transition={{ duration: 0.4 }}
-        className="w-full bg-white rounded-md md:rounded-lg px-4 sm:px-6 lg:px-8 h-14 md:h-16 flex items-center justify-between border border-gray-100"
+        className="w-full px-6 md:px-10 bg-white rounded-md md:rounded-lg h-14 md:h-20 flex items-center justify-between border border-gray-100"
       >
         {/* Logo */}
-        <motion.div variants={sideVariants(-1)} initial="hidden" animate="visible" className="flex items-center shrink-0">
-          <Link href="/" className="inline-block transition-opacity hover:opacity-90">
-            <Image src="/repute_logo.png" alt="Repute Logo" width={140} height={40} priority className="h-7 sm:h-8 md:h-9 w-auto object-contain" />
+        <motion.div
+          variants={sideVariants(-1)}
+          initial="hidden"
+          animate="visible"
+          className="flex items-center shrink-0"
+        >
+          <Link
+            href="/"
+            className="inline-block transition-opacity hover:opacity-90"
+          >
+            <Image
+              src="/repute_logo.png"
+              alt="Repute Logo"
+              width={140}
+              height={40}
+              priority
+              className="h-7 sm:h-8 md:h-12 w-auto object-contain"
+            />
           </Link>
         </motion.div>
 
         {/* Desktop Nav Items */}
-        <ul className="hidden md:flex items-center gap-2.5 md:gap-3.5 lg:gap-6 xl:gap-7 2xl:gap-8 text-[10.5px] md:text-[11px] lg:text-[11.5px] xl:text-[12px] tracking-[0.04em] lg:tracking-[0.06em] font-semibold">
+        <ul className="hidden md:flex items-center gap-2.5 md:gap-3.5 lg:gap-6 xl:gap-7 2xl:gap-8 text-[10.5px] md:text-[11px] lg:text-[11.5px] xl:text-[14px] tracking-[0.04em] lg:tracking-[0.06em] font-semibold">
           {navItems.map((item, i) => (
-            <motion.li key={item.label} custom={i} variants={itemVariants} initial="hidden" animate="visible" className="relative group">
-              <Link href={item.href} className="py-1 whitespace-nowrap text-neutral-800 hover:text-[#e31e24] transition-colors duration-200 block">
+            <motion.li
+              key={item.label}
+              custom={i}
+              variants={itemVariants}
+              initial="hidden"
+              animate="visible"
+              className="relative group"
+            >
+              <Link
+                href={item.href}
+                className="py-1 whitespace-nowrap text-neutral-800 hover:text-[#D50715] transition-colors duration-200 block"
+              >
                 {item.label}
               </Link>
               {/* Hover underline */}
               <motion.span
-                className="absolute bottom-0 left-0 h-[2px] bg-[#e31e24] rounded-full"
+                className="absolute bottom-0 left-0 h-[2px] bg-[#D50715] rounded-full"
                 initial={{ width: 0 }}
                 whileHover={{ width: "100%" }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
@@ -90,11 +122,16 @@ export default function Navbar() {
         </ul>
 
         {/* Right: Button + Mobile Toggle */}
-        <motion.div variants={sideVariants(1)} initial="hidden" animate="visible" className="flex items-center gap-2.5 sm:gap-3">
+        <motion.div
+          variants={sideVariants(1)}
+          initial="hidden"
+          animate="visible"
+          className="flex items-center gap-2.5 sm:gap-3"
+        >
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
             <Link
               href="#start-project"
-              className="hidden sm:inline-flex items-center justify-center px-4 md:px-4.5 lg:px-5 py-2 md:py-2.5 text-[11px] md:text-xs font-semibold text-white tracking-wide rounded-xl bg-gradient-to-b from-[#3a3b40] to-[#1c1d21] shadow-md shadow-black/25 hover:from-[#46474d] hover:to-[#26272e] border border-white/10 transition-all duration-200 whitespace-nowrap"
+              className="hidden sm:inline-flex items-center justify-center px-4 md:px-4.5 lg:px-5 py-2 md:py-3 text-[14px] md:text-[14px]  text-white tracking-wide rounded-xl bg-gradient-to-b from-[#3a3b40] to-[#1c1d21] shadow-md shadow-black/25 hover:from-[#46474d] hover:to-[#26272e] border border-white/10 transition-all duration-200 whitespace-nowrap"
             >
               Start a Project
             </Link>
@@ -107,10 +144,27 @@ export default function Navbar() {
             aria-label="Toggle Navigation Menu"
           >
             <AnimatePresence mode="wait">
-              {mobileMenuOpen
-                ? <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}><X className="w-6 h-6" /></motion.span>
-                : <motion.span key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}><Menu className="w-6 h-6" /></motion.span>
-              }
+              {mobileMenuOpen ? (
+                <motion.span
+                  key="x"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X className="w-6 h-6" />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu className="w-6 h-6" />
+                </motion.span>
+              )}
             </AnimatePresence>
           </button>
         </motion.div>
@@ -132,12 +186,16 @@ export default function Navbar() {
                   key={item.label}
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05, duration: 0.3, ease: "easeOut" }}
+                  transition={{
+                    delay: i * 0.05,
+                    duration: 0.3,
+                    ease: "easeOut",
+                  }}
                 >
                   <Link
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block py-2 px-1 transition-colors text-gray-700 hover:text-[#e31e24] hover:pl-3 duration-200"
+                    className="block py-2 px-1 transition-colors text-gray-700 hover:text-[#D50715] hover:pl-3 duration-200"
                   >
                     {item.label}
                   </Link>

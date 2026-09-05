@@ -67,7 +67,7 @@ export default function Footer() {
             {nav.map((col) => (
               <div key={col.title} className="flex flex-col gap-3">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="w-6 h-px bg-[#e31e24]" />
+                  <span className="w-6 h-px bg-[#D50715]" />
                   <span className="text-[10px] font-bold tracking-[0.18em] text-gray-400 uppercase">{col.title}</span>
                 </div>
                 {col.links.map((link) => (

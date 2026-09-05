@@ -32,23 +32,23 @@ export default function StatsSection() {
   }, []);
 
   return (
-    <section className="section-wrapper relative z-20 mt-6 sm:mt-8 md:mt-10">
-      <div className="section-box !py-6 sm:!py-8 md:!py-10">
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-0">
+    <section className=" relative z-20 mt-6 sm:mt-8 md:mt-10 p-3">
+      <div className="section-box  border-gray !py-6 sm:!py-8 md:!py-10">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-0 justify-center">
           {statsData.map((stat, idx) => (
             <div
               key={stat.label}
               ref={(el) => { itemRefs.current[idx] = el; }}
-              className={`scroll-fade-up flex flex-col justify-center items-center text-center ${
-                idx !== 0 ? "md:border-l md:border-gray-200/80 md:pl-6 lg:pl-8" : ""
+              className={`w-fit scroll-fade-up flex flex-col justify-center items-start  ${
+                idx !== 0 ? "md:border-l border-gray md:pl-6 lg:pl-8" : ""
               } ${idx !== statsData.length - 1 ? "md:pr-6 lg:pr-8" : ""}`}
               style={{ animationDelay: `${idx * 0.12}s` }}
             >
-              <h3 className="text-2xl sm:text-3xl md:text-[26px] lg:text-[30px] font-black text-black tracking-tight leading-none mb-1.5 select-none">
+              <h3 className="text-2xl sm:text-3xl md:text-[26px] lg:text-[35px] font-extrabold text-black tracking-tight leading-none mb-1.5 select-none">
                 {stat.number}
               </h3>
               <p className="section-label mb-1">{stat.label}</p>
-              <p className="text-[11px] sm:text-xs text-gray-600 font-normal leading-relaxed">
+              <p className="font-normal leading-relaxed">
                 {stat.description}
               </p>
             </div>

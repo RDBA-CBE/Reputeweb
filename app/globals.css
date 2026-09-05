@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
 @import "tailwindcss";
 
 :root {
   --background: #0d0e12;
   --foreground: #ffffff;
-  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "IBM Plex Sans", sans-serif;
 }
 
 @theme inline {
@@ -13,11 +14,18 @@
   --font-sans: var(--font-sans);
 }
 
+@layer components {
+
 body {
   background: var(--background);
-  color: var(--foreground);
+  color: #000;
   font-family: var(--font-sans);
+  font-weight: 300;
   overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family:  "Archivo", sans-serif;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -28,49 +36,112 @@ body {
   scrollbar-width: none;
 }
 
+.section-wid{
+  width: 90%;
+  margin:auto;
+}
+
+.hero-navbar {
+  position: absolute;
+  inset: 0 0 auto;
+}
+
+.text-red{
+  color:#c9181d
+}
+
+.text-white-l{
+color:#c9181d
+}
+
+.border-gray{
+  border-color:#DEDEDE;
+}
+.section-pad{
+  padding: 20px 0;
+}
+
+@media (max-width: 1440px) {
+  .section-wid{
+    width: 94%;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-wid{
+    width: 96%;
+  }
+}
+.sec-top-ti{
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:0.2em;
+  color:#000
+}
+.section-ti{
+  font-size: 48px;
+  font-weight: 800;
+}
+.section-ti-sec{
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.section-sub-ti{
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.section-in-ti{
+  font-size: 18px;
+  font-weight: 700;
+}
+
 /* Hero Banner common styles */
 .hero-tag {
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 12px;
+  /* font-weight: 500; */
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #d1d5db;
+  color: #fff;
 }
 
 .hero-headline {
-  font-size: clamp(2.5rem, 6vw, 6.2rem);
-  font-weight: 900;
+  font-size: 100px;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: -0.02em;
   line-height: 0.92;
 }
 
 .hero-body {
-  font-size: clamp(13px, 1.1vw, 15px);
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 300;
   line-height: 1.7;
-  color: #d1d5db;
+  color: #fff;
+  letter-spacing: 0.02em;
 }
 
 .hero-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  padding: 12px 28px;
+  padding: 15px 28px;
   border-radius: 2px;
   white-space: nowrap;
   transition: all 0.2s ease;
+  font-weight: 600;
 }
 .hero-btn:active {
   transform: scale(0.98);
 }
 
 .hero-btn-primary {
-  background: #e31e24;
+  background: #D50715;
   color: #fff;
   box-shadow: 0 8px 24px rgba(227,30,36,0.2);
 }
@@ -79,9 +150,9 @@ body {
 }
 
 .hero-btn-secondary {
-  background: #1b1c20;
+  background: transparent;
   color: #fff;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid #606061;
 }
 .hero-btn-secondary:hover {
   background: #25262c;
@@ -89,11 +160,11 @@ body {
 }
 
 .hero-section-tag {
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #e31e24;
+  color: #D50715;
 }
 
 /* Fade-up animation */
@@ -151,9 +222,9 @@ body {
 
 .section-box {
   width: 100%;
-  background: #FDFDFD;
+  /* background: #FDFDFD; */
   border-radius: 1rem;
-  border: 1px solid rgba(229,231,235,0.9);
+  border: 1px solid #DEDEDE;
   padding: 2.5rem 1.5rem;
 }
 @media (min-width: 640px) {
@@ -166,12 +237,16 @@ body {
   .section-box { padding: 4rem 4rem; }
 }
 
+@media (min-width: 1440px) {
+  .section-box { padding: 4rem 20rem; }
+}
+
 .section-label {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #e31e24;
+  color: #D50715;
 }
 
 .section-heading {
@@ -207,4 +282,6 @@ body {
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 6px 2px rgba(227,30,36,0.8); }
   50%       { opacity: 0.3; transform: scale(0.6); box-shadow: 0 0 2px 1px rgba(227,30,36,0.3); }
+}
+
 }
