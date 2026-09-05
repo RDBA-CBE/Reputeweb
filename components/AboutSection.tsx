@@ -30,10 +30,10 @@ export default function AboutSection() {
   const ref = (i: number) => (el: HTMLElement | null) => { refs.current[i] = el; };
 
   return (
-    <section id="about" className="w-full bg-[#fbfbfb] mt-8 sm:mt-10 md:mt-12 mb-10">
+    <section id="about" className="w-full bg-[#fbfbfb]   mb-10">
       {/* Top: About Us */}
       <div className="max-w-[1440px] mx-auto px-8 sm:px-12 lg:px-20 py-0">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+        <div className="flex flex-col md:flex-row  justify-between gap-10">
           {/* Left */}
           <div
             ref={ref(0)}
