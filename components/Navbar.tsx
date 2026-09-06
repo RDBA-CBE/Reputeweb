@@ -23,7 +23,7 @@ const navVariants = {
     y: 0,
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
   },
 };
 
@@ -32,7 +32,7 @@ const itemVariants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, delay: 0.35 + i * 0.07, ease: "easeOut" },
+    transition: { duration: 0.4, delay: 0.35 + i * 0.07, ease: "easeOut" as const },
   }),
 };
 
@@ -41,7 +41,7 @@ const sideVariants = (dir: number) => ({
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.5, delay: 0.25, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.5, delay: 0.25, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
   },
 });
 
@@ -177,7 +177,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -12, scaleY: 0.94 }}
             animate={{ opacity: 1, y: 0, scaleY: 1 }}
             exit={{ opacity: 0, y: -12, scaleY: 0.94 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="md:hidden absolute top-full left-4 right-4 mt-2 bg-white rounded-lg shadow-2xl border border-gray-200 py-4 px-6 z-50 origin-top"
           >
             <ul className="flex flex-col gap-1 text-sm font-semibold text-gray-800">
