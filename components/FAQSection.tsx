@@ -16,16 +16,15 @@ export default function FAQSection() {
 
   return (
     <section className="w-full bg-[#F3F3F5]">
-      <div className=" section-wid section-pad-big">
-        <div className="flex flex-col md:flex-row gap-12 md:gap-16">
-
+      <div className="section-wid section-pad-big">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16">
           {/* Left */}
           <div className="w-full md:w-2/5">
-            <div className="flex items-center gap-3 mb-5">
-              <span className="w-5 sm:w-6 md:w-12 h-[1px] bg-[#c9181d]" />
+            <div className="flex items-center gap-3 mb-4 md:mb-5">
+              <span className="w-8 md:w-12 h-[1px] bg-[#c9181d]" />
               <p className="sec-top-ti uppercase">FAQ</p>
             </div>
-            <h2 className="section-ti leading-13">
+            <h2 className="section-ti leading-tight">
               QUESTIONS,<br /><span className="text-[#c9181d]">ANSWERED.</span>
             </h2>
           </div>
@@ -34,21 +33,15 @@ export default function FAQSection() {
           <div className="w-full md:w-3/5 flex flex-col">
             {faqs.map((faq, idx) => (
               <div key={idx} className="border-t border-gray">
-                <button
-                  className="w-full flex items-center justify-between py-5 text-left"
-                  onClick={() => setOpen(open === idx ? null : idx)}
-                >
-                  <span className="font-semibold text-black">{faq.q}</span>
-                  <ChevronDown size={18} className={`text-gray ml-4 shrink-0 transition-transform ${open === idx ? "rotate-180" : ""}`} />
+                <button className="w-full flex items-center justify-between py-4 md:py-5 text-left" onClick={() => setOpen(open === idx ? null : idx)}>
+                  <span className="font-semibold text-sm md:text-base text-black pr-4">{faq.q}</span>
+                  <ChevronDown size={18} className={`text-gray shrink-0 transition-transform ${open === idx ? "rotate-180" : ""}`} />
                 </button>
-                {open === idx && (
-                  <p className="text-sm  leading-relaxed pb-5">{faq.a}</p>
-                )}
+                {open === idx && <p className="text-sm leading-relaxed pb-4 md:pb-5">{faq.a}</p>}
               </div>
             ))}
             <div className="border-t border-gray-300" />
           </div>
-
         </div>
       </div>
     </section>

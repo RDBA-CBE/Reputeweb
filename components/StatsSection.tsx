@@ -1,14 +1,7 @@
 "use client";
-
 import React, { useEffect, useRef } from "react";
 
-export interface StatItem {
-  number: string;
-  label: string;
-  description: string;
-}
-
-export const statsData: StatItem[] = [
+export const statsData = [
   { number: "10+",      label: "YEARS",        description: "Building digital experiences" },
   { number: "50+",      label: "TEAM MEMBERS", description: "Strategy, design, engineering, AI" },
   { number: "GLOBAL",   label: "CLIENT REACH", description: "Across continents" },
@@ -32,25 +25,23 @@ export default function StatsSection() {
   }, []);
 
   return (
-    <section className=" relative z-20 mt-6 sm:mt-8 md:mt-10 p-3">
-      <div className="section-box  border-gray !py-6 sm:!py-8 md:!py-10">
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-0 justify-center">
+    <section className="relative z-20 mt-4 md:mt-6 lg:mt-10 p-3">
+      <div className="section-box border-gray !py-6 sm:!py-8 md:!py-10">
+        <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0">
           {statsData.map((stat, idx) => (
             <div
               key={stat.label}
               ref={(el) => { itemRefs.current[idx] = el; }}
-              className={`w-fit scroll-fade-up flex flex-col justify-center items-start  ${
+              className={`scroll-fade-up flex flex-col justify-center items-start ${
                 idx !== 0 ? "md:border-l border-gray md:pl-6 lg:pl-8" : ""
               } ${idx !== statsData.length - 1 ? "md:pr-6 lg:pr-8" : ""}`}
               style={{ animationDelay: `${idx * 0.12}s` }}
             >
-              <h3 className="text-2xl sm:text-3xl md:text-[26px] lg:text-[35px] font-extrabold text-black tracking-tight leading-none mb-1.5 select-none">
+              <h3 className="text-2xl sm:text-3xl lg:text-[35px] font-extrabold text-black tracking-tight leading-none mb-1.5 select-none">
                 {stat.number}
               </h3>
               <p className="section-label mb-1">{stat.label}</p>
-              <p className="font-normal leading-relaxed">
-                {stat.description}
-              </p>
+              <p className="text-sm md:text-base font-normal leading-relaxed">{stat.description}</p>
             </div>
           ))}
         </div>

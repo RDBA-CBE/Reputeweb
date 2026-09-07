@@ -49,9 +49,9 @@ export default function Footer() {
           ))}
         </div>
       </div>
-      <div className="w-[90%] lg:w-[75%] mx-auto  pt-16 pb-6">
+      <div className="w-[90%] lg:w-[75%] mx-auto pt-12 md:pt-16 pb-6">
         {/* Top row */}
-        <div className="flex flex-col md:flex-row gap-12 md:gap-8">
+        <div className="flex flex-col md:flex-row gap-10 md:gap-8">
           {/* Left: Logo + tagline + social */}
           <div className="w-full md:w-[320px] shrink-0 flex flex-col gap-5">
             <img
@@ -125,7 +125,7 @@ export default function Footer() {
           </div>
 
           {/* Right: Nav columns */}
-          <div className="flex-1 grid grid-cols-2 xl:grid-cols-5 gap-8">
+          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8">
             {nav.map((col) => (
               <div key={col.title} className="flex flex-col gap-3">
                 <div className="flex items-center gap-2 mb-1">
@@ -149,7 +149,7 @@ export default function Footer() {
         </div>
 
         {/* Contact row */}
-        <div className="flex justify-end gap-16 mt-4 ">
+        <div className="flex flex-col sm:flex-row sm:justify-end gap-6 sm:gap-16 mt-6 md:mt-4">
           <div>
             <p className="text-[14px] tracking-[0.15em] text-footer uppercase mb-1">
               CALL
