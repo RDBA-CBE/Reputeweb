@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
@@ -14,9 +14,24 @@ const projects = [
   { num: ".05", title: "BRAND TRANSFORMATION",   category: "BRANDING & CREATIVE", tag: "BRANDING",         image: "/image_1.png" },
 ];
 
+function getSlidesToShow(w: number) {
+  if (w < 640) return 1.2;
+  if (w < 1024) return 2;
+  if (w < 1280) return 2.5;
+  return 3;
+}
+
 export default function SelectedWorkSection() {
   const [activeFilter, setActiveFilter] = useState("ALL");
+  const [slidesToShow, setSlidesToShow] = useState(3);
   const sliderRef = useRef<Slider>(null);
+
+  useEffect(() => {
+    const update = () => setSlidesToShow(getSlidesToShow(window.innerWidth));
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   const filtered = activeFilter === "ALL" ? projects : projects.filter((p) => p.tag === activeFilter);
 
@@ -25,20 +40,14 @@ export default function SelectedWorkSection() {
     arrows: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 4.3,
+    slidesToShow,
     slidesToScroll: 1,
     swipeToSlide: true,
-    responsive: [
-      { breakpoint: 1280, settings: { slidesToShow: 2.5 } },
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 640,  settings: { slidesToShow: 1.2 } },
-    ],
   };
 
   return (
     <section className="section-pad-big bg-white">
       <div className="section-wid pb-5">
-        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-0 mb-8 md:mb-10">
           <div>
             <div className="flex items-center gap-3 mb-4">
@@ -49,10 +58,9 @@ export default function SelectedWorkSection() {
               IDEAS.<br />BUILT INTO <span className="text-[#c9181d]">IMPACT.</span>
             </h2>
           </div>
-          <button className="hero-btn hero-btn-primary w-fit">VIEW ALL WORK <span><ArrowRight className="w-3.5 h-3.5" /></span></button>
+          <button className="hero-btn hero-btn-primary w-fit">VIEW ALL WORK <ArrowRight className="w-3.5 h-3.5" /></button>
         </div>
 
-        {/* Filter tabs + arrows */}
         <div className="flex items-center justify-between border-t border-b border-gray-200 py-3 md:py-4">
           <div className="flex items-center gap-4 md:gap-6 overflow-x-auto scrollbar-hide">
             {filters.map((f) => (
@@ -73,8 +81,7 @@ export default function SelectedWorkSection() {
         </div>
       </div>
 
-      {/* Slider */}
-      <div className=" mt-6 md:mt-8">
+      <div className="section-wid mt-6 md:mt-8">
         <Slider ref={sliderRef} {...settings}>
           {filtered.map((p) => (
             <div key={p.num}>

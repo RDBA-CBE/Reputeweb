@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 
@@ -13,27 +13,37 @@ const industries = [
   { num: "07", title: "FOOD & BEVERAGE", image: "/image_6.png" },
 ];
 
+function getSlidesToShow(w: number) {
+  if (w < 480) return 1.3;
+  if (w < 768) return 2.2;
+  if (w < 1024) return 3;
+  if (w < 1280) return 3.5;
+  return 4.5;
+}
+
 export default function IndustriesSection() {
+  const [slidesToShow, setSlidesToShow] = useState(4.5);
+
+  useEffect(() => {
+    const update = () => setSlidesToShow(getSlidesToShow(window.innerWidth));
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
   const settings = {
     dots: false,
     arrows: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 4.5,
+    slidesToShow,
     slidesToScroll: 1,
     swipeToSlide: true,
-    responsive: [
-      { breakpoint: 1280, settings: { slidesToShow: 3.5 } },
-      { breakpoint: 1024, settings: { slidesToShow: 3 } },
-      { breakpoint: 768,  settings: { slidesToShow: 2.2 } },
-      { breakpoint: 480,  settings: { slidesToShow: 1.3 } },
-    ],
   };
 
   return (
     <section className="w-full bg-[#555555] section-pad-big !pb-10">
       <div className="section-wid">
-        {/* Header */}
         <div className="flex flex-col lg:grid lg:grid-cols-12 lg:items-start gap-6 lg:gap-0 mb-8 md:mb-12">
           <div className="w-full lg:col-span-6">
             <div className="flex items-center gap-3 mb-4 md:mb-6">
@@ -52,44 +62,24 @@ export default function IndustriesSection() {
         </div>
       </div>
 
-      {/* Slider — left-aligned with section-wid, bleeds to right edge of page */}
-      <div
-        style={{
-          marginLeft: "calc((100vw - 90%) / 2)",
-          width: "calc(100vw - (100vw - 90%) / 2)",
-          overflow: "hidden",
-        }}
-      >
+      <div style={{ marginLeft: "calc((100vw - 90%) / 2)", width: "calc(100vw - (100vw - 90%) / 2)", overflow: "hidden" }}>
         <Slider {...settings}>
           {industries.map((ind) => (
             <div key={ind.num}>
               <div className="pr-2 cursor-pointer group">
-                <div
-                  className="relative w-full overflow-hidden bg-[#1a1a1a] rounded-sm"
-                  style={{ height: "clamp(220px, 58vh, 600px)" }}
-                >
+                <div className="relative w-full overflow-hidden bg-[#1a1a1a] rounded-sm" style={{ height: "clamp(220px, 58vh, 600px)" }}>
                   {ind.image ? (
-                    <Image
-                      src={ind.image}
-                      alt={ind.title}
-                      fill
-                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
-                    />
+                    <Image src={ind.image} alt={ind.title} fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105" />
                   ) : null}
-                  <span className="absolute bottom-4 left-4 text-white/30 text-4xl md:text-6xl font-black leading-none">
-                    {ind.num}
-                  </span>
+                  <span className="absolute bottom-4 left-4 text-white/30 text-4xl md:text-6xl font-black leading-none">{ind.num}</span>
                 </div>
-                <h3 className="section-in-ti uppercase tracking-tight text-white mt-3 md:mt-4 mb-2">
-                  {ind.title}
-                </h3>
+                <h3 className="section-in-ti uppercase tracking-tight text-white mt-3 md:mt-4 mb-2">{ind.title}</h3>
               </div>
             </div>
           ))}
         </Slider>
       </div>
 
-      {/* Footer */}
       <div className="section-wid pt-6 md:pt-10">
         <p className="text-[11px] md:text-[12px] font-bold tracking-[0.2em] text-white/60 uppercase">
           SCROLL FOR MORE INDUSTRIES →
