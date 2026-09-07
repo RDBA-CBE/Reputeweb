@@ -1,4 +1,5 @@
 "use client";
+import { ArrowRight } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 
 export default function CTASection() {
@@ -19,7 +20,7 @@ export default function CTASection() {
       <div className="w-[90%] lg:w-[75%] mx-auto border-t-2 border-[#c9181d]">
 
         {/* Vertical lines */}
-        <div className="absolute inset-0 pointer-events-none z-1" aria-hidden>
+        <div className="hidden xl:block absolute inset-0 pointer-events-none z-0" aria-hidden>
           <div className="w-[90%] lg:w-[85%] mx-auto px-8 h-full relative">
             <div className="absolute top-0 w-px h-full overflow-hidden" style={{ left: 0 }}>
               <div className="absolute bottom-0 w-full bg-gray-100" style={{ height: animate ? "55%" : "0%", transition: "height 1s ease-in-out 0s" }} />
@@ -35,7 +36,7 @@ export default function CTASection() {
           </div>
         </div>
 
-        <div className="py-16 md:py-20 lg:py-28 z-10">
+        <div className="relative z-10 py-16 md:py-20 lg:py-28">
           <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-20">
             {/* Left */}
             <div className="w-full lg:col-span-6">
@@ -49,8 +50,8 @@ export default function CTASection() {
                 Bring us the problem you can't name yet. We'll help you define it, then build the work that answers it.
               </p>
               <div className="flex flex-wrap items-center gap-3 md:gap-4">
-                <button className="hero-btn hero-btn-primary">TALK TO REPUTE →</button>
-                <button className="hero-btn hero-btn-secondary text-[#000] hover:text-[#fff]">CHECK YOUR BUSINESS →</button>
+                <button className="hero-btn hero-btn-primary">TALK TO REPUTE <ArrowRight className="w-3.5 h-3.5" /></button>
+                <button className="hero-btn hero-btn-secondary text-[#000] hover:text-[#fff]">CHECK YOUR BUSINESS <ArrowRight className="w-3.5 h-3.5" /></button>
               </div>
             </div>
           </div>

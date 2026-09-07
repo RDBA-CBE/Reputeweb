@@ -4,10 +4,10 @@ import React, { useEffect, useRef } from "react";
 import { Search, Pencil, Code2, BarChart2 } from "lucide-react";
 
 const steps = [
-  { icon: <Search className="w-8 h-8 md:w-10 md:h-10 text-[#D50715]" />, num: "01", title: "THINK", desc: "Business context, market signals and AI-assisted research." },
-  { icon: <Pencil className="w-8 h-8 md:w-10 md:h-10 text-[#D50715]" />, num: "02", title: "CREATE", desc: "Brand and creative direction, prototyped fast." },
-  { icon: <Code2 className="w-8 h-8 md:w-10 md:h-10 text-[#D50715]" />, num: "03", title: "BUILD", desc: "Web, software and AI systems engineered to last." },
-  { icon: <BarChart2 className="w-8 h-8 md:w-10 md:h-10 text-[#D50715]" />, num: "04", title: "SCALE", desc: "Predictive optimisation that compounds over time." },
+  { icon: <Search className="w-8 h-8 md:w-10 md:h-10 text-[#D50715]" />, img: "/IconImages/search.png", num: "01", title: "THINK", desc: "Business context, market signals and AI-assisted research." },
+  { icon: <Pencil className="w-8 h-8 md:w-10 md:h-10 text-[#D50715]" />, img:"/IconImages/pencil.png", num: "02", title: "CREATE", desc: "Brand and creative direction, prototyped fast." },
+  { icon: <Code2 className="w-8 h-8 md:w-10 md:h-10 text-[#D50715]" />, img:"/IconImages/simple-icons_devbox.png", num: "03", title: "BUILD", desc: "Web, software and AI systems engineered to last." },
+  { icon: <BarChart2 className="w-8 h-8 md:w-10 md:h-10 text-[#D50715]" />, img:"/IconImages/oui_stats.png", num: "04", title: "SCALE", desc: "Predictive optimisation that compounds over time." },
 ];
 
 export default function AboutSection() {
@@ -59,9 +59,9 @@ export default function AboutSection() {
       {/* Bottom: Approach */}
       <div ref={ref(2) as React.RefCallback<HTMLDivElement>} className="scroll-fade-up mx-3 sm:mx-4 lg:mx-8 bg-[#111214] rounded-2xl mt-6 md:mt-10" style={{ animationDelay: "0.1s" }}>
         <div className="px-5 sm:px-8 lg:px-16 py-8 md:py-10">
-          <div className="flex flex-col md:grid md:grid-cols-12 gap-8 md:gap-0">
+          <div className="flex flex-col md:grid md:grid-cols-12 gap-8 lg:gap-0">
             {/* Left label */}
-            <div className="md:col-span-3 flex flex-col justify-start">
+            <div className="col-span-12 lg:col-span-3 flex flex-col justify-start">
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-8 md:w-12 h-[1px] bg-[#D50715]" />
                 <p className="sec-top-ti !text-white uppercase">APPROACH</p>
@@ -72,13 +72,14 @@ export default function AboutSection() {
             </div>
 
             {/* Steps */}
-            <div className="md:col-span-9">
+            <div className="col-span-12 lg:col-span-9">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-x-8">
                 {steps.map((step, idx) => (
                   <div key={step.num} className="relative">
                     <div className="relative flex items-center h-[52px]">
                       <div className="relative z-10 w-[55px] h-[55px] md:w-[65px] md:h-[65px] rounded-full border border-white/30 flex items-center justify-center bg-[#151719] shrink-0">
-                        {step.icon}
+                        {/* {step.icon} */}
+                        <img src={step.img} alt={step.title} className="object-contain w-[30px] lg:w-[40px] h-auto" />
                       </div>
                       {idx !== steps.length - 1 && (
                         <div className="hidden lg:flex absolute left-[52px] right-[-32px] top-1/2 -translate-y-1/2 items-center">

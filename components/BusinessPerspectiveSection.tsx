@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 const sequence = [
   { num: "01", label: "THE PROBLEM" },
@@ -41,8 +42,8 @@ export default function BusinessPerspectiveSection() {
               </button>
             </div>
             <div className="flex flex-wrap items-center gap-4 mt-5 md:mt-6">
-              <button className="hero-btn hero-btn-primary w-fit">SEE THE FULL PERSPECTIVE →</button>
-              <button className="hero-btn hero-btn-secondary !border-none">PREVIOUS PERSPECTIVES →</button>
+              <button className="hero-btn hero-btn-primary w-fit">SEE THE FULL PERSPECTIVE <ArrowRight className="w-3.5 h-3.5" /></button>
+              <button className="hero-btn hero-btn-secondary !border-none">PREVIOUS PERSPECTIVES <ArrowRight className="w-3.5 h-3.5" /></button>
             </div>
           </div>
 

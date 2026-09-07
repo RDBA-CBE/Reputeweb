@@ -29,8 +29,8 @@ export default function WhatWeDoSection() {
     <section className="w-full bg-[#D50715]">
       <div className="section-wid py-12 md:py-16 lg:py-20">
         {/* Top row */}
-        <div className="flex flex-col md:grid md:grid-cols-12 gap-8 md:gap-20 mb-8 md:mb-10">
-          <div className="w-full md:col-span-7">
+        <div className="grid grid-cols-12 gap-8 lg:gap-20 mb-8 md:mb-10">
+          <div className="w-full col-span-12 lg:col-span-7">
             <div className="flex items-center gap-3 mb-4 md:mb-5">
               <span className="w-8 md:w-12 h-[1px] bg-white" />
               <p className="sec-top-ti text-white uppercase">WHAT WE DO</p>
@@ -39,7 +39,7 @@ export default function WhatWeDoSection() {
               ONE PARTNER<br />MANY<br />POSSIBLITIES.
             </h2>
           </div>
-          <div className="w-full md:col-span-5 flex items-end">
+          <div className="w-full col-span-12 lg:col-span-5 flex items-end">
             <p className="text-white text-sm md:text-base max-w-2xl">
               Six connected capabilities. Engage one, or let them compound — strategy, design, engineering, intelligence and growth working from a single brief.
             </p>
@@ -47,8 +47,8 @@ export default function WhatWeDoSection() {
         </div>
 
         {/* Bottom row */}
-        <div className="flex flex-col md:grid md:grid-cols-12 gap-8 md:gap-20">
-          <div className="w-full md:col-span-7 flex flex-col">
+        <div className=" grid grid-cols-12 gap-8 lg:gap-20">
+          <div className="w-full col-span-12 lg:col-span-7 flex flex-col">
             {capabilities.map((cap, idx) => (
               <div key={cap.num} className="border-t border-white/40 cursor-pointer" onClick={() => setActive(idx)}>
                 <div className="py-4 md:py-5">
@@ -77,7 +77,7 @@ export default function WhatWeDoSection() {
             <div className="border-t border-white/20" />
           </div>
 
-          <div className="w-full md:col-span-5 flex flex-col justify-between">
+          <div className="w-full col-span-12 lg:col-span-5 flex flex-col justify-between">
             <div className="relative w-full rounded-sm overflow-hidden">
               <img src={capabilities[active].image} alt={capabilities[active].title} className="object-cover w-full h-auto" />
             </div>

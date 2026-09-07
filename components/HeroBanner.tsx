@@ -55,7 +55,7 @@ export default function HeroBanner() {
         <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-0 min-h-[calc(100vh-130px)]">
 
           {/* Left */}
-          <div className="w-full md:max-w-[340px] lg:max-w-[480px] xl:max-w-[600px] flex flex-col justify-center z-20">
+          <div className="w-full md:max-w-[340px] lg:max-w-[420px] xl:max-w-[500px] 2xl:max-w-[600px] flex flex-col justify-center z-20">
             <div className="flex items-center gap-2.5 mb-4 md:mb-6 animate-fade-up delay-100">
               <span className="w-8 md:w-12 h-[1px] bg-[#D50715] shrink-0" />
               <p className="hero-tag">BRANDING &bull; TECHNOLOGY &bull; AI &bull; GROWTH</p>
@@ -119,7 +119,7 @@ export default function HeroBanner() {
           </div>
 
           {/* Desktop: Floating Growth Card */}
-          <div className="hidden md:flex absolute z-20 flex-col gap-3 right-[5%] lg:right-[8%] xl:right-[26%] animate-fade-up delay-600" style={{ top: "50%", transform: "translateY(-50%)" }}>
+          <div className="hidden md:flex absolute z-20 flex-col gap-3 right-[5%] lg:right-[6%] xl:right-[24%] 2xl:right-[27%] animate-fade-up delay-600" style={{ top: "52%", transform: "translateY(-50%)" }}>
             <div className="bg-white text-black p-4 lg:p-5 w-[250px] lg:w-[400px] shadow-2xl rounded-[2px] border border-gray-100/20">
               <p className="hero-section-tag mb-1.5">BUSINESS GROWTH CHECK</p>
               <h2 className="text-sm lg:text-[18px] font-semibold text-black leading-snug mb-1.5">

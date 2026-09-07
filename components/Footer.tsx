@@ -33,7 +33,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-[#2a2a2a] text-white relative overflow-hidden ">
       {/* Vertical lines continuing from CTA section */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
+      <div className="hidden xl:block absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden>
         <div className="w-[90%] lg:w-[85%] mx-auto px-8 h-full relative">
           {/* Line 0: left edge of content */}
           <div className="absolute top-0 w-px h-[55%] bg-[#ffffff09]" style={{ left: 0 }} />
@@ -49,7 +49,7 @@ export default function Footer() {
           ))}
         </div>
       </div>
-      <div className="w-[90%] lg:w-[75%] mx-auto pt-12 md:pt-16 pb-6">
+      <div className="relative z-10 w-[90%] lg:w-[75%] mx-auto pt-12 md:pt-16 pb-6">
         {/* Top row */}
         <div className="flex flex-col md:flex-row gap-10 md:gap-8">
           {/* Left: Logo + tagline + social */}

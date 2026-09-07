@@ -1,4 +1,5 @@
 "use client";
+import { ArrowRight } from "lucide-react";
 import React from "react";
 
 const features = [
@@ -24,7 +25,7 @@ export default function WhyReputeSection() {
             <h2 className="section-ti leading-tight uppercase mb-6 md:mb-10">
               WHY BUSINESSES<br />CHOOSE <span className="text-[#D50715]">REPUTE.</span>
             </h2>
-            <button className="hero-btn hero-btn-primary w-fit">START A CONVERSATION <span>→</span></button>
+            <button className="hero-btn hero-btn-primary w-fit">START A CONVERSATION <span><ArrowRight className="w-3.5 h-3.5" /></span></button>
           </div>
           <div className="w-full md:col-span-5 flex items-start">
             <p className="text-sm md:text-base md:max-w-lg">
@@ -35,8 +36,10 @@ export default function WhyReputeSection() {
 
         {/* Features grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8">
-          {features.map((f) => (
-            <div key={f.title} className="border-t border-[#D50715] pt-6 pb-8 md:pb-10">
+          {features.map((f, idx) => (
+            <div key={f.title} className={`border-t pt-6 pb-8 md:pb-10 ${
+              idx === 2 || idx === 3 ? "border-[#D50715]" : "border-gray-300"
+            }`}>
               <div className="mb-4">{f.icon}</div>
               <h3 className="section-in-ti uppercase mb-2">{f.title}</h3>
               <p className="text-sm md:text-base">{f.desc}</p>

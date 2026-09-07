@@ -69,7 +69,7 @@ export default function Navbar() {
             : "0 2px 8px rgba(0,0,0,0.06)",
         }}
         transition={{ duration: 0.4 }}
-        className="w-full px-6 md:px-10 bg-white rounded-md md:rounded-lg h-14 md:h-20 flex items-center justify-between border border-gray-100"
+        className="w-full px-5 md:px-5 lg:px-5 xl:px-10 bg-white rounded-md md:rounded-lg h-14 md:h-20 flex items-center justify-between border border-gray-100"
       >
         {/* Logo */}
         <motion.div
@@ -94,7 +94,7 @@ export default function Navbar() {
         </motion.div>
 
         {/* Desktop Nav Items */}
-        <ul className="hidden md:flex items-center gap-2.5 md:gap-3.5 lg:gap-6 xl:gap-7 2xl:gap-8 text-[10.5px] md:text-[11px] lg:text-[11.5px] xl:text-[14px] tracking-[0.04em] lg:tracking-[0.06em] font-semibold">
+        <ul className="hidden xl:flex items-center gap-2.5 md:gap-3.5 lg:gap-6 xl:gap-7 2xl:gap-8 text-[10.5px] md:text-[11px] lg:text-[11.5px] xl:text-[14px] tracking-[0.04em] lg:tracking-[0.06em] font-semibold">
           {navItems.map((item, i) => (
             <motion.li
               key={item.label}
@@ -131,7 +131,7 @@ export default function Navbar() {
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
             <Link
               href="#start-project"
-              className="hidden sm:inline-flex items-center justify-center px-4 md:px-4.5 lg:px-5 py-2 md:py-3 text-[14px] md:text-[14px]  text-white tracking-wide rounded-xl bg-gradient-to-b from-[#3a3b40] to-[#1c1d21] shadow-md shadow-black/25 hover:from-[#46474d] hover:to-[#26272e] border border-white/10 transition-all duration-200 whitespace-nowrap"
+              className="hidden sm:inline-flex items-center justify-center px-4 md:px-4.5 lg:px-5 py-2 md:py-3 text-[14px] md:text-[14px]  text-white tracking-wide rounded-xl bg-gradient-to-b from-[#40454ACC] to-[#262729] shadow-md shadow-black/25 hover:from-[#46474d] hover:to-[#26272e] border border-white/10 transition-all duration-200 whitespace-nowrap"
             >
               Start a Project
             </Link>
@@ -140,7 +140,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-gray-700 hover:text-black focus:outline-none"
+            className="xl:hidden p-2 text-gray-700 hover:text-black focus:outline-none"
             aria-label="Toggle Navigation Menu"
           >
             <AnimatePresence mode="wait">
@@ -178,7 +178,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, scaleY: 1 }}
             exit={{ opacity: 0, y: -12, scaleY: 0.94 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-            className="md:hidden absolute top-full left-4 right-4 mt-2 bg-white rounded-lg shadow-2xl border border-gray-200 py-4 px-6 z-50 origin-top"
+            className="xl:hidden absolute top-full left-4 right-4 mt-2 bg-white rounded-lg shadow-2xl border border-gray-200 py-4 px-6 z-50 origin-top"
           >
             <ul className="flex flex-col gap-1 text-sm font-semibold text-gray-800">
               {navItems.map((item, i) => (
@@ -210,7 +210,7 @@ export default function Navbar() {
                 <Link
                   href="#start-project"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full text-center inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold text-white rounded-lg bg-[#1c1d21]"
+                  className="w-full text-center inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold text-white rounded-lg bg-gradient-to-b from-[#40454ACC] to-[#262729] shadow-md shadow-black/25 hover:from-[#46474d] hover:to-[#26272e]"
                 >
                   Start a Project
                 </Link>
