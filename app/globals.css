@@ -28,6 +28,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family:  "Archivo", sans-serif;
 }
 
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -46,6 +47,10 @@ h1, h2, h3, h4, h5, h6 {
   inset: 0 0 auto;
 }
 
+.section-bg{
+  background: #EFF0F1;
+}
+
 .text-red{
   color:#c9181d
 }
@@ -54,11 +59,22 @@ h1, h2, h3, h4, h5, h6 {
 color:#c9181d
 }
 
+.text-footer{
+  color: #B7B7B9;
+}
+
 .border-gray{
   border-color:#DEDEDE;
 }
 .section-pad{
   padding: 20px 0;
+}
+.section-pad-big{
+  padding: 60px 0;
+}
+
+.text-gray{
+  color: #595959;
 }
 
 @media (max-width: 1440px) {
@@ -73,7 +89,7 @@ color:#c9181d
   }
 }
 .sec-top-ti{
-  font-size:14px;
+  font-size:13px;
   font-weight:600;
   letter-spacing:0.2em;
   color:#000
@@ -85,6 +101,11 @@ color:#c9181d
 .section-ti-sec{
   font-size: 34px;
   font-weight: 800;
+}
+
+.section-ti-sm{
+   font-size: 28px;
+  font-weight: 700;
 }
 
 .section-sub-ti{
@@ -134,7 +155,7 @@ color:#c9181d
   border-radius: 2px;
   white-space: nowrap;
   transition: all 0.2s ease;
-  font-weight: 600;
+  font-weight: 500;
 }
 .hero-btn:active {
   transform: scale(0.98);

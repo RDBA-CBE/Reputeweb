@@ -75,7 +75,7 @@ const features = [
 
 export default function WhyReputeSection() {
   return (
-    <section className="">
+    <section className="section-bg">
       <div className="section-wid py-16 md:py-20">
 
         {/* Top row */}

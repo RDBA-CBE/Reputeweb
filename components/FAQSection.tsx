@@ -16,33 +16,33 @@ export default function FAQSection() {
 
   return (
     <section className="w-full bg-[#F3F3F5]">
-      <div className=" mx-auto px-8 sm:px-12 lg:px-20 py-16 ">
+      <div className=" section-wid section-pad-big">
         <div className="flex flex-col md:flex-row gap-12 md:gap-16">
 
           {/* Left */}
           <div className="w-full md:w-2/5">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="w-6 h-[2px] bg-[#c0392b]" />
-              <p className="text-[11px] font-bold tracking-[0.2em] text-gray-500 uppercase">FAQ</p>
+            <div className="flex items-center gap-3 mb-5">
+              <span className="w-5 sm:w-6 md:w-12 h-[1px] bg-[#c9181d]" />
+              <p className="sec-top-ti uppercase">FAQ</p>
             </div>
-            <h2 className="text-4xl sm:text-5xl font-black uppercase leading-[1.0] text-black">
-              QUESTIONS,<br /><span className="text-[#c0392b]">ANSWERED.</span>
+            <h2 className="section-ti leading-13">
+              QUESTIONS,<br /><span className="text-[#c9181d]">ANSWERED.</span>
             </h2>
           </div>
 
           {/* Right */}
           <div className="w-full md:w-3/5 flex flex-col">
             {faqs.map((faq, idx) => (
-              <div key={idx} className="border-t border-gray-300">
+              <div key={idx} className="border-t border-gray">
                 <button
                   className="w-full flex items-center justify-between py-5 text-left"
                   onClick={() => setOpen(open === idx ? null : idx)}
                 >
-                  <span className="text-sm font-semibold text-black">{faq.q}</span>
-                  <ChevronDown size={18} className={`text-gray-400 ml-4 shrink-0 transition-transform ${open === idx ? "rotate-180" : ""}`} />
+                  <span className="font-semibold text-black">{faq.q}</span>
+                  <ChevronDown size={18} className={`text-gray ml-4 shrink-0 transition-transform ${open === idx ? "rotate-180" : ""}`} />
                 </button>
                 {open === idx && (
-                  <p className="text-sm text-gray-500 leading-relaxed pb-5">{faq.a}</p>
+                  <p className="text-sm  leading-relaxed pb-5">{faq.a}</p>
                 )}
               </div>
             ))}

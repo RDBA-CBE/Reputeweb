@@ -16,48 +16,65 @@ export default function CTASection() {
 
   return (
     <section className="w-full bg-white relative" ref={sectionRef}>
+      <div className="w-[90%] lg:w-[75%] mx-auto border-t-2 border-[#c9181d]">
 
-      {/* Full-width vertical lines across entire section */}
-      <div className="absolute inset-0 flex justify-between pointer-events-none px-[12.5%]" aria-hidden>
-        {[0, 1, 2, 3, 4].map((i) => (
-          <div key={i} className="relative w-px h-full overflow-hidden">
-            <div
-              className="absolute bottom-0 w-full bg-gray-200"
-              style={{
-                height: animate ? "55%" : "0%",
-                transition: `height 1s ease-in-out ${i * 0.08}s`,
-              }}
-            />
+      {/* Vertical lines — same positions as footer */}
+      <div className="absolute inset-0 pointer-events-none z-1" aria-hidden>
+        <div className="w-[90%] lg:w-[85%] mx-auto px-8 h-full relative">
+          {/* Line 0: left edge */}
+          <div className="absolute top-0 w-px h-full overflow-hidden" style={{ left: 0 }}>
+            <div className="absolute bottom-0 w-full bg-gray-100" style={{ height: animate ? "55%" : "0%", transition: "height 1s ease-in-out 0s" }} />
           </div>
-        ))}
+          {/* Line 1: after logo col 320px */}
+          <div className="absolute top-0 w-px h-full overflow-hidden" style={{ left: "370px" }}>
+            <div className="absolute bottom-0 w-full bg-gray-100" style={{ height: animate ? "55%" : "0%", transition: "height 1s ease-in-out 0.08s" }} />
+          </div>
+          {/* Lines 2–6: evenly split flex-1 after 320px */}
+          {[1, 2, 3, 4, 5].map((n) => (
+            <div
+              key={n}
+              className="absolute top-0 w-px h-full overflow-hidden"
+              style={{ left: `calc(320px + (100% - 320px) * ${n} / 5)` }}
+            >
+              <div
+                className="absolute bottom-0 w-full bg-gray-100"
+                style={{
+                  height: animate ? "55%" : "0%",
+                  transition: `height 1s ease-in-out ${(n + 1) * 0.08}s`,
+                }}
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div className="w-full px-[12.5%] py-28 md:py-20 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-32">
+      <div className=" py-28 md:py-20  z-10">
+        <div className=" grid grid-cols-12 justify-center  gap-10 md:gap-20">
 
           {/* Left */}
-          <div className="w-full md:w-auto flex items-center">
-            <h2 className="text-5xl sm:text-6xl font-black uppercase leading-[0.95] text-black whitespace-nowrap">
+          <div className="w-full lg:col-span-6 flex ">
+            <h2 className="text-5xl sm:text-6xl section-ti uppercase leading-[0.95] text-black whitespace-nowrap">
               LET'S DECIDE<br />WHAT'S NEXT.
             </h2>
           </div>
 
           {/* Right */}
-          <div className="w-full md:w-1/2 flex flex-col gap-6">
-            <p className="text-sm text-gray-600 leading-relaxed max-w-sm">
+          <div className="w-full lg:col-span-6 flex flex-col gap-6">
+            <p className="leading-relaxed max-w-sm">
               Bring us the problem you can't name yet. We'll help you define it, then build the work that answers it.
             </p>
             <div className="flex items-center gap-4">
-              <button className="bg-[#c0392b] text-white text-[11px] font-bold tracking-[0.2em] uppercase px-6 py-3 flex items-center gap-3 hover:bg-[#a93226] transition-colors whitespace-nowrap">
+              <button className="hero-btn hero-btn-primary">
                 TALK TO REPUTE →
               </button>
-              <button className="border border-gray-300 text-black text-[11px] font-bold tracking-[0.2em] uppercase px-6 py-3 flex items-center gap-3 hover:border-black transition-colors whitespace-nowrap">
+              <button className="hero-btn hero-btn-secondary text-[#000] hover:text-[#fff]">
                 CHECK YOUR BUSINESS →
               </button>
             </div>
           </div>
 
         </div>
+      </div>
       </div>
     </section>
   );

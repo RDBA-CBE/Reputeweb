@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useRef } from "react";
 import Image from "next/image";
+import { ArrowLeft, ArrowRight, ArrowUpLeft, ArrowUpRight } from "lucide-react";
 
 const filters = ["ALL", "BRANDING", "WEB & SOFTWARE", "MOBILE & DIGITAL", "AI", "E-COMMERCE", "DIGITAL MARKETING"];
 
@@ -9,6 +10,7 @@ const projects = [
   { num: ".02", title: "MOBILE PRODUCT LAUNCH", category: "MOBILE & DIGITAL", tag: "MOBILE & DIGITAL", image: "/image_2.png" },
   { num: ".03", title: "CREATIVE EXPERIENCE", category: "CREATIVES", tag: "BRANDING", image: "/image_3.png" },
   { num: ".04", title: "MOBILE PRODUCT LAUNCH", category: "MOBILE & DIGITAL", tag: "MOBILE & DIGITAL", image: "/image_4.png" },
+  { num: ".05", title: "BRAND TRANSFORMATION", category: "BRANDING & CREATIVE", tag: "BRANDING", image: "/image_1.png" },
 ];
 
 export default function SelectedWorkSection() {
@@ -24,21 +26,21 @@ export default function SelectedWorkSection() {
   };
 
   return (
-    <section className="w-full bg-white">
-      <div className="max-w-[1440px] mx-auto px-8 sm:px-12 lg:px-20 pt-16 md:pt-20">
+    <section className="section-pad-big  bg-white">
+      <div className="section-wid  pb-5">
 
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <span className="w-6 h-[2px] bg-[#c0392b]" />
-              <p className="text-[11px] font-bold tracking-[0.2em] text-gray-500 uppercase">SELECTED WORK</p>
+              <span className="w-5 sm:w-6 md:w-12 h-[1px] bg-[#c9181d]" />
+              <p className="sec-top-ti uppercase">SELECTED WORK</p>
             </div>
-            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.92] text-black">
-              IDEAS.<br />BUILT INTO <span className="text-[#c0392b]">IMPACT.</span>
+            <h2 className="section-ti uppercase leading-[0.92] text-black">
+              IDEAS.<br />BUILT INTO <span className="text-[#c9181d]">IMPACT.</span>
             </h2>
           </div>
-          <button className="mt-8 md:mt-0 self-start md:self-auto bg-[#c0392b] text-white text-[11px] font-bold tracking-[0.2em] uppercase px-7 py-4 flex items-center gap-3 hover:bg-[#a93226] transition-colors">
+          <button className="hero-btn hero-btn-primary w-fit">
             VIEW ALL WORK <span>→</span>
           </button>
         </div>
@@ -50,8 +52,8 @@ export default function SelectedWorkSection() {
               <button
                 key={f}
                 onClick={() => setActiveFilter(f)}
-                className={`text-[11px] font-bold tracking-widest uppercase whitespace-nowrap transition-colors ${
-                  activeFilter === f ? "text-[#c0392b]" : "text-gray-500 hover:text-black"
+                className={`text-[13px] font-semibold tracking-widest uppercase whitespace-nowrap transition-colors ${
+                  activeFilter === f ? "text-[#c9181d]" : "text-[#000] hover:text-black"
                 }`}
               >
                 {f}
@@ -59,8 +61,8 @@ export default function SelectedWorkSection() {
             ))}
           </div>
           <div className="flex items-center gap-2 ml-6 shrink-0">
-            <button onClick={() => scroll("left")} className="w-9 h-9 border border-gray-300 flex items-center justify-center hover:border-black transition-colors text-sm">←</button>
-            <button onClick={() => scroll("right")} className="w-9 h-9 border border-gray-300 flex items-center justify-center hover:border-black transition-colors text-sm">→</button>
+            <button onClick={() => scroll("left")} className="w-9 h-9 border border-gray-300 flex items-center justify-center hover:border-black transition-colors text-sm"> <ArrowLeft className="w-4 h-4"/></button>
+            <button onClick={() => scroll("right")} className="w-9 h-9 border border-gray-300 flex items-center justify-center hover:border-black transition-colors text-sm"><ArrowRight className="w-4 h-4" /></button>
           </div>
         </div>
 
@@ -84,10 +86,10 @@ export default function SelectedWorkSection() {
             </div>
             <div className="flex items-start justify-between px-0 py-4 border-b border-gray-200">
               <div>
-                <p className="text-sm font-black uppercase tracking-tight text-black">{p.title}</p>
-                <p className="text-[11px] text-gray-400 uppercase tracking-widest mt-1">{p.category}</p>
+                <h3 className=" section-in-ti">{p.title}</h3>
+                <p className="text-[11px] text-gray uppercase tracking-widest mt-1">{p.category}</p>
               </div>
-              <span className="text-gray-400 mt-1">↗</span>
+              <span className="text-gray mt-1"> <ArrowUpRight className="w-4 h-4"/></span>
             </div>
           </div>
         ))}
